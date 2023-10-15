@@ -55,7 +55,7 @@ def index():
           + (["WHERE", where_clause] if where_clause != "" else [])
           + ["LIMIT", limit, "OFFSET", offset]
         )
-    print(SQL_QUERY)
+    #print(SQL_QUERY)
 
     # set query_history
     query_history.append((where_clause, limit, offset, SQL_QUERY))
