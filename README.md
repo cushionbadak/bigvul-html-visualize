@@ -1,6 +1,6 @@
 # Big-Vul Plain HTML Visualizer
 
-Visualizer for [Big-Vul dataset](https://github.com/ZeoVan/MSR_20_Code_vulnerability_CSV_Dataset) (commit hash : 6022ca3)
+Visualize [Big-Vul dataset](https://github.com/ZeoVan/MSR_20_Code_vulnerability_CSV_Dataset) in HTML
 
 ## Requirement
 
