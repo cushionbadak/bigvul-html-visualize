@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Viewer</title>
+    <style>
+        td {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Parameter Form</h1>
+    
+    <h2>FREE FORM</h2>
+    
+    <form action="{{ url_for('index') }}" method="get">
+        <pre>SQL QUERY = SELECT * FROM bigvul WHERE <input type="text" name="where" value=""> LIMIT <input type="text" name="limit" value="1"> OFFSET <input type="text" name="offset" value="0"><br></pre>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <h1>Query Histories</h1>
+
+    <table border="">
+        <thead>
+            <th>Where Clause</th>
+            <th>Limit</th>
+            <th>Offset</th>
+            <th>Query</th>
+        </thead>
+        <tbody>
+            {% for where_clause, limit, offset, sql_query in query_history %}
+                <tr>
+                    <td>{{ where_clause }}</td>
+                    <td>{{ limit }}</td>
+                    <td>{{ offset }}</td>
+                    <td><a href="{{ url_for('index', where=where_clause, limit=limit, offset=offset) }}">{{ sql_query }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Data Viewer</h1>
+
+    {% for row in prepared_data %}
+        <h2>No. {{loop.index}}</h2>
+        <table border="1" style="margin-bottom:200px">
+            {% for col_name, col_value in row %}
+                <tr>
+                    <th>{{ col_name }}</th>
+                    <td>
+                        {%- if col_value|is_url -%}
+                            <a href="{{ col_value }}">{{ col_value }}</a>
+                        {%- elif col_name|is_columnname_code_related -%}
+                            <pre>{{ col_value }}</pre>
+                        {%- else -%}
+                            {{ col_value }}
+                        {%- endif -%}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+
+</body>
+</html>

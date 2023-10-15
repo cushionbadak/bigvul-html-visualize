@@ -1,0 +1,30 @@
+# .gitignore
+
+# data (10GB)
+data/
+
+# Venv directories
+venv/
+ENV/
+
+# General:
+.DS_Store
+
+# Python:
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+__pycache__/
+*.so
+*.egg-info/
+dist/
+build/
+develop-eggs/
+eggs/
+lib/
+lib64/
+parts/
+var/
+*.egg-info/
+.sass-cache
