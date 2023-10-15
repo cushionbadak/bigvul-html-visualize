@@ -64,12 +64,17 @@ def index():
     conn = sqlite3.connect(BIGVUL_DB_FILE)
     cursor = conn.cursor()
     # 쿼리 실행
-    cursor.execute(SQL_QUERY)
-    rows = cursor.fetchall()
+    try:
+        cursor.execute(SQL_QUERY)
+        rows = cursor.fetchall()
+        sql_error_flag = False
+    except:
+        rows = []
+        sql_error_flag = True
     prepared_data = [zip(column_names, row) for row in rows]
     conn.close()
     # 웹 페이지로 데이터 전달
-    return render_template("index.html", prepared_data=prepared_data, query_history=query_history)
+    return render_template("index.html", prepared_data=prepared_data, query_history=query_history, sql_error_flag=sql_error_flag)
 
 if __name__ == "__main__":
     get_column_names()

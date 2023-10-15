@@ -18,7 +18,7 @@
     </form>
 
 
-    <h1>Query Histories (up to recent-10 queries)</h1>
+    <h1>Query Histories (up to recent 10 queries)</h1>
 
     <table border="">
         <thead>
@@ -40,6 +40,9 @@
     </table>
 
     <h1>Data Viewer</h1>
+    {% if sql_error_flag %}
+        <h2>Error occured during SQL Query Processing</h2>
+    {% endif %}
 
     {% for row in prepared_data %}
         <h2>No. {{loop.index}}</h2>
