@@ -10,9 +10,7 @@
     </style>
 </head>
 <body>
-    <h1>Parameter Form</h1>
-    
-    <h2>FREE FORM</h2>
+    <h1>Send Query</h1>
     
     <form action="{{ url_for('index') }}" method="get">
         <pre>SQL QUERY = SELECT * FROM bigvul WHERE <input type="text" name="where" value=""> LIMIT <input type="text" name="limit" value="1"> OFFSET <input type="text" name="offset" value="0"><br></pre>
@@ -20,7 +18,7 @@
     </form>
 
 
-    <h1>Query Histories</h1>
+    <h1>Query Histories (up to recent-10 queries)</h1>
 
     <table border="">
         <thead>
