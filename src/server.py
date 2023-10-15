@@ -77,7 +77,16 @@ def index():
     prepared_data = [zip(column_names, row) for row in rows]
     conn.close()
     # 웹 페이지로 데이터 전달
-    return render_template("index.html", prepared_data=prepared_data, query_history=query_history, sql_error_flag=sql_error_flag, sql_time_str=sql_time_str)
+    return render_template(
+        "index.html", 
+        prepared_data=prepared_data, 
+        query_history=query_history, 
+        sql_error_flag=sql_error_flag, 
+        sql_time_str=sql_time_str,
+        previous_where=where_clause,
+        previous_limit=limit,
+        previous_offset=offset
+        )
 
 @app.route('/statistics')
 def statistics():

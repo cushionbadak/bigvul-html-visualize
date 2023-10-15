@@ -14,7 +14,7 @@
     <h1>Send Query</h1>
     
     <form action="{{ url_for('index') }}" method="get">
-        <pre>SQL QUERY = SELECT * FROM bigvul WHERE <input type="text" name="where" value="" size="50"> LIMIT <input type="text" name="limit" value="1" size="4"> OFFSET <input type="text" name="offset" value="0" size="4"><br></pre>
+        <pre>SQL QUERY = SELECT * FROM bigvul WHERE <input type="text" name="where" value="{{ previous_where }}" size="50"> LIMIT <input type="text" name="limit" value="{{ previous_limit }}" size="4"> OFFSET <input type="text" name="offset" value="{{ previous_offset }}" size="4"><br></pre>
         <input type="submit" value="Submit">
     </form>
 
