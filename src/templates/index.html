@@ -29,7 +29,7 @@
             <th>Query</th>
         </thead>
         <tbody>
-            {% for where_clause, limit, offset, sql_query in query_history %}
+            {% for where_clause, limit, offset, sql_query in query_history|reverse %}
                 <tr>
                     <td>{{ where_clause }}</td>
                     <td>{{ limit }}</td>
