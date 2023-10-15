@@ -2,6 +2,8 @@
 
 Visualize [Big-Vul dataset](https://github.com/ZeoVan/MSR_20_Code_vulnerability_CSV_Dataset) in HTML
 
+![Visualizer Screenshot](20231015.screenshot.png)
+
 ## Requirement
 
 - python 3.8.5 & packages in `requirements.txt`
