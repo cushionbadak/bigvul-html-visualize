@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Big-Vul well-known Statistics</title>
+    <style>
+        td {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+<button onclick="history.back()">Go Back</button>
+
+<h1>Table Info</h1>
+<pre>
+sqlite> PRAGMA table_info(bigvul);
+0|?|TEXT|0||0
+1|Access Gained|TEXT|0||0
+2|Attack Origin|TEXT|0||0
+3|Authentication Required|TEXT|0||0
+4|Availability|TEXT|0||0
+5|CVE ID|TEXT|0||0
+6|CVE Page|TEXT|0||0
+7|CWE ID|TEXT|0||0
+8|Complexity|TEXT|0||0
+9|Confidentiality|TEXT|0||0
+10|Integrity|TEXT|0||0
+11|Known Exploits|TEXT|0||0
+12|Publish Date|TEXT|0||0
+13|Score|TEXT|0||0
+14|Summary|TEXT|0||0
+15|Update Date|TEXT|0||0
+16|Vulnerability Classification|TEXT|0||0
+17|add_lines|TEXT|0||0
+18|codeLink|TEXT|0||0
+19|commit_id|TEXT|0||0
+20|commit_message|TEXT|0||0
+21|del_lines|TEXT|0||0
+22|file_name|TEXT|0||0
+23|files_changed|TEXT|0||0
+24|func_after|TEXT|0||0
+25|func_before|TEXT|0||0
+26|lang|TEXT|0||0
+27|lines_after|TEXT|0||0
+28|lines_before|TEXT|0||0
+29|parentID|TEXT|0||0
+30|patch|TEXT|0||0
+31|project|TEXT|0||0
+32|project_after|TEXT|0||0
+33|project_before|TEXT|0||0
+34|vul|TEXT|0||0
+35|vul_func_with_fix|TEXT|0||0
+</pre>
+
+<h1>No. of Vulnerables</h1>
+<pre>
+sqlite> SELECT DISTINCT COUNT(*) FROM bigvul WHERE "vul" = "1";
+10900
+</pre>
+
+
+
+
+
+
+<h1>Group by CWE ID</h1>
+<pre>
+sqlite> SELECT "CWE ID", COUNT(*) FROM bigvul WHERE "vul" = "1" GROUP BY "CWE ID";
+|2117
+CWE-1021|1
+CWE-119|2127
+CWE-120|7
+CWE-125|625
+CWE-129|4
+CWE-134|20
+CWE-16|1
+CWE-17|51
+CWE-172|4
+CWE-18|34
+CWE-189|337
+CWE-19|55
+CWE-190|307
+CWE-191|3
+CWE-20|1142
+CWE-200|503
+CWE-209|1
+CWE-22|35
+CWE-252|1
+CWE-254|123
+CWE-255|7
+CWE-264|508
+CWE-269|38
+CWE-281|7
+CWE-284|177
+CWE-285|26
+CWE-287|26
+CWE-290|1
+CWE-295|5
+CWE-310|94
+CWE-311|19
+CWE-320|8
+CWE-327|2
+CWE-330|3
+CWE-331|1
+CWE-345|2
+CWE-346|4
+CWE-347|7
+CWE-352|1
+CWE-354|7
+CWE-358|20
+CWE-361|1
+CWE-362|278
+CWE-369|34
+CWE-388|10
+CWE-399|736
+CWE-400|48
+CWE-404|62
+CWE-415|81
+CWE-416|330
+CWE-426|4
+CWE-436|4
+CWE-476|215
+CWE-494|3
+CWE-502|2
+CWE-522|2
+CWE-532|2
+CWE-59|52
+CWE-601|3
+CWE-611|7
+CWE-617|22
+CWE-664|1
+CWE-665|6
+CWE-668|1
+CWE-674|11
+CWE-682|11
+CWE-693|2
+CWE-704|24
+CWE-732|66
+CWE-74|3
+CWE-754|10
+CWE-755|2
+CWE-763|2
+CWE-77|11
+CWE-770|8
+CWE-772|46
+CWE-78|11
+CWE-787|198
+CWE-79|55
+CWE-824|3
+CWE-834|13
+CWE-835|34
+CWE-862|4
+CWE-89|5
+CWE-90|2
+CWE-909|1
+CWE-918|2
+CWE-94|11
+</pre>
+
+
+
+
+
+
+
+<h1>Group by Vulnerability Classification</h1>
+<pre>
+sqlite> SELECT "Vulnerability Classification", COUNT(*) FROM bigvul WHERE "vul" = "1" GROUP BY "Vulnerability Classification";
+|2772
++Info|60
++Info |585
++Priv|12
++Priv |396
++Priv +Info |2
++Priv Bypass |4
+Bypass|37
+Bypass |412
+Bypass +Info|1
+Bypass +Info |43
+Dir. Trav.|9
+Dir. Trav. |27
+DoS|269
+DoS |2614
+DoS +Info|2
+DoS +Info |43
+DoS +Priv |127
+DoS +Priv Mem. Corr. |17
+DoS Bypass|47
+DoS Bypass |18
+DoS Exec Code|40
+DoS Exec Code |56
+DoS Exec Code Mem. Corr.|5
+DoS Exec Code Mem. Corr. |85
+DoS Exec Code Mem. Corr. Bypass|1
+DoS Exec Code Overflow|63
+DoS Exec Code Overflow |115
+DoS Exec Code Overflow Mem. Corr.|8
+DoS Exec Code Overflow Mem. Corr. |461
+DoS Mem. Corr.|5
+DoS Mem. Corr. |31
+DoS Overflow|85
+DoS Overflow |1029
+DoS Overflow +Info|8
+DoS Overflow +Info |8
+DoS Overflow +Priv |18
+DoS Overflow +Priv Mem. Corr. |23
+DoS Overflow +Priv Mem. Corr. +Info |1
+DoS Overflow Bypass |4
+DoS Overflow Mem. Corr.|16
+DoS Overflow Mem. Corr. |117
+DoS Overflow Mem. Corr. +Info |2
+Exec Code|58
+Exec Code |244
+Exec Code +Priv|3
+Exec Code +Priv |9
+Exec Code Bypass|2
+Exec Code Bypass |2
+Exec Code Mem. Corr. |10
+Exec Code Overflow|33
+Exec Code Overflow |134
+Exec Code Overflow +Info|1
+Exec Code Overflow Mem. Corr. |57
+Exec Code Sql |1
+Http R.Spl. |6
+Mem. Corr. |3
+Overflow|51
+Overflow |387
+Overflow +Info|2
+Overflow +Info |5
+Overflow +Priv|1
+Overflow +Priv |115
+Overflow +Priv +Info |1
+Overflow Bypass |1
+Overflow Bypass +Info |2
+Overflow Mem. Corr. |25
+Overflow Mem. Corr. +Info|1
+Sql |4
+XSS |50
+XSS +Info |9
+XSS Bypass |5
+</pre>
+
+
+</body>

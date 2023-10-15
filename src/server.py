@@ -76,6 +76,10 @@ def index():
     # 웹 페이지로 데이터 전달
     return render_template("index.html", prepared_data=prepared_data, query_history=query_history, sql_error_flag=sql_error_flag)
 
+@app.route('/statistics')
+def statistics():
+    return render_template("statistics.html")
+
 if __name__ == "__main__":
     get_column_names()
     app.run(debug=True)

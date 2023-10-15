@@ -10,6 +10,7 @@
     </style>
 </head>
 <body>
+
     <h1>Send Query</h1>
     
     <form action="{{ url_for('index') }}" method="get">
@@ -46,7 +47,7 @@
 
     {% for row in prepared_data %}
         <h2>No. {{loop.index}}</h2>
-        <table border="1" style="margin-bottom:200px">
+        <table border="1" style="margin-bottom:400px">
             {% for col_name, col_value in row %}
                 <tr>
                     <th>{{ col_name }}</th>
@@ -63,6 +64,9 @@
             {% endfor %}
         </table>
     {% endfor %}
+
+    <h1>Other Pages</h1>
+    <form action="{{ url_for('statistics') }}"><input type="submit" value="Go To Statistics Page"></form>
 
 </body>
 </html>
