@@ -9,6 +9,12 @@ Visualize [Big-Vul dataset](https://github.com/ZeoVan/MSR_20_Code_vulnerability_
 - python 3.8.5 & packages in `requirements.txt`
 - big-vul benchmark in sqlite3 database form. You should convert and put it in `data/bigvul.db`, where the db file contains the table named `bigvul`.
 
+## How to run
+
+- install requirements (virtualenv & pip)
+- `cd src`
+- `python server.py`
+
 ## Warning
 - It supposed to use in localhost-only, since it naively-implemented.
 - I've test my implementation using cleaned version 
